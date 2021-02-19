@@ -42,10 +42,10 @@ jobs:
           script: |
             const output = `
             #### Pylint test 🖌\`${{ steps.pylint.outcome }}\`
-            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*
             <details><summary>Show Output</summary>
             \n\`\`\`sh\n${process.env.PLAN}\`\`\`
-            </details> 
+            </details>\n
+            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*
             `;
             github.issues.createComment({
               issue_number: context.issue.number,
