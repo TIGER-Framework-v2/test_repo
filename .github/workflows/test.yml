@@ -43,8 +43,8 @@ jobs:
             const output = `
             #### Pylint test 🖌\`${{ steps.pylint.outcome }}\`
             <details><summary>Show Output</summary>
-            \n\`\`\`sh\n${process.env.PLAN}\`\`\`
-            </details>\n
+            \n\`\`\`sh\n${process.env.PLAN}\`\`\`\n
+            </details>
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*
             `;
             github.issues.createComment({
