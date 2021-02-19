@@ -42,12 +42,10 @@ jobs:
           script: |
             const output = `
             #### Pylint test 🖌\`${{ steps.pylint.outcome }}\`
-            #### Terraform Initialization ⚙️\`m\`
-            #### Terraform Plan 📖\`n\`
+            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*
             <details><summary>Show Output</summary>
             \`\`\`${process.env.PLAN}\`\`\`
-            </details>
-            *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`* 
+            </details> 
             `;
             github.issues.createComment({
               issue_number: context.issue.number,
