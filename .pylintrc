@@ -1,0 +1,8 @@
+[MASTER]
+
+disable=
+  C0103, #doesn't conform to snake_case naming style
+  C0301, # Too long string
+  C0116, # missing-module-docstring
+  R0913, # Too many arguments
+  W0621
