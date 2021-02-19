@@ -44,7 +44,8 @@ jobs:
             #### Pylint test 🖌\`${{ steps.pylint.outcome }}\`
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*
             <details><summary>Show Output</summary>
-            ${process.env.PLAN}
+            \`\`\`sh\n${process.env.PLAN}\`\`\`
+            \n
             </details> 
             `;
             github.issues.createComment({
