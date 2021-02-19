@@ -13,9 +13,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
         
       - name: test secret
         run: |
           echo ${{ secrets.TEST_ANTON }} >> ./test
           cat ./test
+
+      - name: Python Code Quality and Lint
+        uses: ricardochaves/python-lint@v1.3.0
+        with:
+          # A list of all paths to test
+          python-root-list: ./code/
+          use-pylint: true
+          use-pycodestyle: false
+          use-flake8: false
+          use-black: false
+          use-mypy: false
+          use-isort: false
 
