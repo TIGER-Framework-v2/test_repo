@@ -26,21 +26,27 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f ./code/requirements.txt ]; then pip install -r ./code/requirements.txt; fi
+      
+      - name: pylint install and test
+        id: pylint
+        run: |
+          pip install pylint &&
+          pylint ./code/*.py
         
       - name: test secret
         run: |
           echo ${{ secrets.TEST_ANTON }} >> ./test
           cat ./test
 
-      - name: Python Code Quality and Lint
-        uses: ricardochaves/python-lint@v1.3.0
-        with:
-          # A list of all paths to test
-          python-root-list: ./code/*.py
-          use-pylint: true
-          use-pycodestyle: false
-          use-flake8: false
-          use-black: false
-          use-mypy: false
-          use-isort: false
+      #- name: Python Code Quality and Lint
+      #  uses: ricardochaves/python-lint@v1.3.0
+      #  with:
+      #    # A list of all paths to test
+      #    python-root-list: ./code/*.py
+      #    use-pylint: true
+      #    use-pycodestyle: false
+      #    use-flake8: false
+      #    use-black: false
+      #    use-mypy: false
+      #    use-isort: false
 
