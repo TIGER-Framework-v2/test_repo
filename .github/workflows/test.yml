@@ -42,7 +42,6 @@ jobs:
         if: github.event_name == 'pull_request'
         env:
           PY_PLAN: "${{ steps.pylint.outputs.result }}"
-          HD_PLAN: "${{ steps.hadolint.outputs }}"
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -51,7 +50,7 @@ jobs:
             #### Hadolint test \`${{ steps.hadolint.outcome }}\`
             <details>
             <summary>Pylint Output</summary>\n\`\`\`sh\n${process.env.PY_PLAN}\n\`\`\`
-            <summary>Hadolint Output</summary>\n\`\`\`sh\n${process.env.HD_PLAN}\n\`\`\`
+            <summary>Hadolint Output</summary>\n\`\`\`sh\n${{ steps.hadolint.outputs }}\n\`\`\`
             </details>\n
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
             github.issues.createComment({
