@@ -49,8 +49,10 @@ jobs:
             #### Pylint test 🖌\`${{ steps.pylint.outcome }}\`
             #### Hadolint test \`${{ steps.hadolint.outcome }}\`
             <details>
-            <summary>Pylint Output</summary>\n\`\`\`sh\n${process.env.PY_PLAN}\n\`\`\`
-            <summary>Hadolint Output</summary>\n\`\`\`sh\n${{ steps.hadolint.outputs }}\n\`\`\`
+            <summary>Pylint Output</summary>\n
+            \`\`\`sh\n${process.env.PY_PLAN}\n\`\`\`
+            \n<summary>Hadolint Output</summary>\n
+            \`\`\`sh\n${{ steps.hadolint.outputs }}\n\`\`\`
             </details>\n
             *Pusher: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
             github.issues.createComment({
