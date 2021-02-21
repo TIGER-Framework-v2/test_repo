@@ -62,6 +62,10 @@ jobs:
               repo: context.repo.repo,
               body: output
             })
+
+      - name: Common Status
+        if: steps.pylint.outcome == 'failure' || steps.hadolint.outcome == 'failure'
+        run: exit 1
         
       - name: test secret
         run: |
